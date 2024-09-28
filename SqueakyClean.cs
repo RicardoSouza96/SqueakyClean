@@ -26,6 +26,9 @@ public static class Identifier
                 i++;
                 continue;
             }
+            if (!Char.IsLetter(ch) && ch != '_')
+                continue;
+
             newString.Append(ch);
         }
         return newString.ToString();

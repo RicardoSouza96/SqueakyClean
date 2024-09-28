@@ -14,6 +14,12 @@ public static class Identifier
             if (ch == ' ')
                 ch = '_';
 
+           if (Char.IsControl(ch))
+           {
+               newString.Append("CTRL");
+               continue;
+           }
+
             newString.Append(ch);
         }
         return newString.ToString();

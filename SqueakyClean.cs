@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 
 public static class Identifier
@@ -27,6 +27,9 @@ public static class Identifier
                 continue;
             }
             if (!Char.IsLetter(ch) && ch != '_')
+                continue;
+
+            if (ch >= 'α' && ch <= 'ω')
                 continue;
 
             newString.Append(ch);

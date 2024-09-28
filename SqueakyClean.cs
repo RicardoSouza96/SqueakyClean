@@ -14,12 +14,18 @@ public static class Identifier
             if (ch == ' ')
                 ch = '_';
 
-           if (Char.IsControl(ch))
-           {
-               newString.Append("CTRL");
-               continue;
-           }
-
+            if (Char.IsControl(ch))
+            {
+                newString.Append("CTRL");
+                continue;
+            }
+            if(ch == '-')
+            {
+                ch = identifier[i + 1];
+                newString.Append(Char.ToUpper(ch));
+                i++;
+                continue;
+            }
             newString.Append(ch);
         }
         return newString.ToString();

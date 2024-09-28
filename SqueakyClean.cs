@@ -1,16 +1,22 @@
 using System;
+using System.Text;
 
 public static class Identifier
 {
     public static string Clean(string identifier)
     {
-        char[] chars = identifier.ToCharArray();
-        for (int i = 0; i < chars.Length; i++)
+        StringBuilder newString = new StringBuilder();
+        char ch;
+        for (int i = 0; i < identifier.Length; i++)
         {
-            if (chars[i] == ' ')
-                chars[i] = '_';
+            ch = identifier[i];
+
+            if (ch == ' ')
+                ch = '_';
+
+            newString.Append(ch);
         }
-        return new string(chars);
+        return newString.ToString();
     }
 }
 
